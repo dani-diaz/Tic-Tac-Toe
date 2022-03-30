@@ -1,3 +1,34 @@
+// Constants
+
+const PLAYERX_WON = 'PLAYERX_WON';
+const PLAYERO_WON = 'PLAYERO_WON';
+const TIE = 'TIE';
+
+/* idx board
+[0] [1] [2]
+[3] [4] [5]
+[6] [7] [8]
+*/
+
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+];
+
+// variables
+
+let board = ['', '', '', '', '', '', '', '', ''];
+let currentPlayer = 'X';
+let isGameActive = true;
+
+
+
 // event listeners
 
 window.addEventListener('DOMcontentLoaded', () => {
@@ -7,38 +38,9 @@ window.addEventListener('DOMcontentLoaded', () => {
     const announcer = document.querySelector('.announcer');
 
 
-// variables
-
-    let board = ['', '', '', '', '', '', '', '', ''];
-    let currentPlayer = 'X';
-    let isGameActive = true;
-
-// cached
-
-    const PLAYERX_WON = 'PLAYERX_WON';
-    const PLAYERO_WON = 'PLAYERO_WON';
-    const TIE = 'TIE';
-  
-    /* idx board
-    [0] [1] [2]
-    [3] [4] [5]
-    [6] [7] [8]
-    */
-
-    const winningConditions = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
-
 
     // functions
-    
+
     function handleResultValidation() {
         let roundWon = false;
         for (let i = 0; i <= 7; i++) {
